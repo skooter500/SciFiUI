@@ -18,31 +18,7 @@ There is not much interactivity with the user interface as it is mainly just vis
 3)The buttons at the top left of the screen shows the different types of suits and if it is clicked it shows the data of the suit that is clicked on 
 
 # How it works
-
-# What I am most proud of in the assignment
-
-# Markdown Tutorial
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
+The spider in the middle of the screen was drawn by the use of a spider class and just simple processing references such as ellipse() and line().
 
 ```Java
 public void render()
@@ -55,9 +31,9 @@ public void render()
 }
 ```
 
-So is this without specifying the language:
+The time at the bottom middle of the screen displays the current system time from the computer system
 
-```
+```Java
 public void render()
 {
 	ui.noFill();
@@ -68,24 +44,37 @@ public void render()
 }
 ```
 
+The tables located at the top left and right of the screen
+
+
+```Java
+public void render()
+{
+	ui.noFill();
+	ui.stroke(255);
+	ui.rect(x, y, width, height);
+	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+	ui.text(text, x + width * 0.5f, y + height * 0.5f);
+}
+```
+
+
+# What I am most proud of in the assignment
+Even though the user interface is very basic and simplistic, I have grasped a decent understanding of how java and processing works
+
+# Images
+
 This is an image using a relative URL:
 
 ![An image](images/p8.png)
 
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
+# Youtube
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
-This is a table:
 
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
+
+
+
+
+
 
