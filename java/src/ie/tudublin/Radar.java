@@ -36,6 +36,10 @@ public class Radar
         float x2 = pos.x + (float) Math.sin(theta) * radius;
         float y2 = pos.y - (float) Math.cos(theta) * radius;
         ui.line(pos.x, pos.y, x2, y2);
+        ui.line(pos.x, pos.y, pos.x + 120, pos.y);
+        ui.line(pos.x, pos.y, pos.x - 120, pos.y);
+        ui.line(pos.x, pos.y, pos.x, pos.y + 120);
+        ui.line(pos.x, pos.y, pos.x, pos.y - 120);
     }
 
     float timeDelta = 1.0f / 60.0f;

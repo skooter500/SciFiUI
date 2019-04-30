@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
-//import processing.core.PFont;
+
 
 public class UI extends PApplet
 {
@@ -12,14 +12,14 @@ public class UI extends PApplet
     ArrayList<Suit> suits = new ArrayList<Suit>();
     ArrayList<Suit> suitInfo = new ArrayList<Suit>();
 
+
+    //Declaring objects
+    Radar radar;
+    Radar radar2;
+
     Button b;
-
     Time time;
-
     Spider spider;
-
-   
-    //PFont myFont;
 
     boolean[] keys = new boolean[1024];
 
@@ -164,6 +164,7 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "Button");
         //mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 850, 550, 120);// speed,x,y
+        radar2 = new Radar(this, 1, 150, 550, 120);// speed,x,y
         
         //time class
         time = new Time(this, 360, 600);//x.y
@@ -174,39 +175,39 @@ public class UI extends PApplet
         
     }
 
-    Radar radar;
-
     public void draw()
     {
         background(159, 0, 0);
         
         //Drawing Layout
+        fill(255);
+        stroke(0);
         rect(30, 40, 350, 300); //x,y,width,height
         rect(600, 40, 350, 300);
 
+        //Invoke method to drawSpider
         spider.drawSpider();
 
         b.render();
         
-
+        //Invoke method to draw Radars
+        fill(0);
+        text("Spidey Sense",850,400);
         radar.update();
         radar.render();
+        
+        text("Spidey Sense",150,400);
+        radar2.update();
+        radar2.render();
 
+        //Invoke method to generate time
         time.render();
         time.update();
-
-        //myFont = createFont("Homoarakhn", 40);
-        //fill(255);
-        //textFont(myFont);
+        
         text("SpiderMan", width / 2, 150);
 
+
         /*drawSuitButtons();*/
-
-
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
     }
 }
 
