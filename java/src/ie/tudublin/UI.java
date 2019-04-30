@@ -13,11 +13,12 @@ public class UI extends PApplet
     ArrayList<Suit> suitInfo = new ArrayList<Suit>();
 
     Button b;
-    //MovingCircle mc;
 
     Time time;
 
-    //Spider spider;
+    Spider spider;
+
+   
     //PFont myFont;
 
     boolean[] keys = new boolean[1024];
@@ -167,8 +168,9 @@ public class UI extends PApplet
         //time class
         time = new Time(this, 360, 600);//x.y
 
-        //spider class 
-        //spider = new Spider(this, )
+        spider = new Spider(this);
+
+        //
         
     }
 
@@ -177,6 +179,13 @@ public class UI extends PApplet
     public void draw()
     {
         background(159, 0, 0);
+        
+        //Drawing Layout
+        rect(30, 40, 350, 300); //x,y,width,height
+        rect(600, 40, 350, 300);
+
+        spider.drawSpider();
+
         b.render();
         
 
