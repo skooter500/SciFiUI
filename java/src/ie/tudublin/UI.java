@@ -6,12 +6,14 @@ import processing.data.Table;
 import processing.data.TableRow;
 
 
+
 public class UI extends PApplet
 {
 
     ArrayList<Suit> suits = new ArrayList<Suit>();
     ArrayList<Suit> suitInfo = new ArrayList<Suit>();
-
+    
+    int val;
 
     //Declaring objects
     Radar radar;
@@ -19,6 +21,7 @@ public class UI extends PApplet
 
     Button b;
     Time time;
+
     Spider spider;
 
     boolean[] keys = new boolean[1024];
@@ -45,9 +48,8 @@ public class UI extends PApplet
     
         loadSuits();
         printSuits();
-        drawSuits();
        
-
+       
     }
 
     public void loadSuits()
@@ -55,10 +57,10 @@ public class UI extends PApplet
         Table table = loadTable("suits.csv", "header");
         for(TableRow tr : table.rows())
         {
-            /*Suit a = new Suit(tr);
+            Suit a = new Suit(tr);
             suits.add(a);
-            */
-            suits.add(new Suit(tr));
+            
+            //suits.add(new Suit(tr));
         }   
 
     }
@@ -72,92 +74,61 @@ public class UI extends PApplet
     
     }
 
-    public void drawSuits()
-    {
-        
+    public void printSuitInfo(int j)
+    {   
+
+        for (int i = 0; i < suits.size(); i++) {
+            text(suits.get(j).getSuit(),750, 60);
+            text(suits.get(j).getAttack(),750,100);
+            text(suits.get(j).getHealth(),750,140);
+            text(suits.get(j).getArmor(),750,180);
+            text(suits.get(j).getStealth(),750,220);
+            text(suits.get(j).getAgility(),750,260);
+        }
     }
 
-        /*public void drawSuits()
-        { 
-            // Draw the list of products
-            float border = height * 0.1f;
-            float start = width * 0.05f;
-            float w = width * 0.3f;
-            float h = height * 0.1f;
-            //textAlign(LEFT, CENTER);
-            //textSize(16);
-            for(int i = 0 ; i < suits.size() ; i ++)
-                {
-                    Suit p = suits.get(i);
-                    float y = map(i, 0, suits.size(), border, height - border);
-                    fill(255);
-                    rect(start, y, w, h);
-                    fill(0);
-                    textAlign(LEFT, CENTER);
-                    text(p.getSuit(), start + 10, y + (h / 2));
-                    textAlign(RIGHT, CENTER);
-                    text(nf(0, 2), start + w - 10, y + (h / 2));
-                } 
-        }
-
-        public void drawSuitInfo()
-        {
-            float border = height * 0.1f;
-            float start = (width / 2) + width * 0.05f;
-            float w = width * 0.4f;
-            float h = height * 0.8f;
-      
-            stroke(0);
-            fill(255);
-            rect(start, border, w, h);
-            fill(0);
-            textAlign(CENTER, CENTER);
-            text("Your Bill", (float) (width * 0.75), border + 20);
-            float total = 0;
-            float y = border + 50;
-            float x = start + 10;
-            float gap = 30;
-            for(int i = 0 ; i < suit.size() ; i ++)
-            {
-                Suit p = suit.get(i);    
-                textAlign(LEFT, CENTER);
-                text(p.getName(), start + 10, y);
-                textAlign(RIGHT, CENTER);
-                text(nf(p.getPrice(), 0, 2), start + w - 10, y);
-                y += gap;
-                total += p.getPrice();
-            }
-            textAlign(LEFT, CENTER);
-            text("Total:", x, y);
-            textAlign(RIGHT, CENTER);
-            text(nf(total, 0, 2), x + w - 20, y);  
-        }*/
-    
-   
-
-    
-
-   /* public void mouseClicked()
+    public void mouseClicked()
     {
-        int which = -1;
+        
 
-        // The best way!!
-        if ((mouseX > border && mouseX < border + buttonWidth))
+        //CHecks if mouse position is inside the rectangle containing buttons
+        if(mouseX > 30 && mouseX < 380 && mouseY > 40 && mouseY < 340 )
         {
-            if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
+            //Checks if mouse position is within the range of Classic Suit
+            if(mouseX > 50 && mouseX < 200 && mouseY > 50 && mouseY < 125 )
             {
-                which = (int) ((mouseY - border) / (buttonHeight + gap));
+               suitInfo.add(suits.get(0));
+               val = 0;
+            }
+            //Checks if mouse position is within the range of Noir Suit
+            if(mouseX > 215 && mouseX < 365 && mouseY > 50 && mouseY < 125 )
+            {
+                suitInfo.add(suits.get(1));
+                val = 1;
+                
+            }
+            //Checks if mouse position is within the range of Stealth Suit
+            if(mouseX > 50 && mouseX < 200 && mouseY > 150 && mouseY < 225 )
+            {
+                suitInfo.add(suits.get(2));
+                val = 2;
+            }
+            //Checks if mouse position is within the range of Iron Spider Suit
+            if(mouseX > 215 && mouseX < 365 && mouseY > 150 && mouseY < 225 )
+            {
+                suitInfo.add(suits.get(3));
+                val = 3;
+            }
+            //Checks if mouse position is within the range of Mark IV Suit
+            if(mouseX > 50 && mouseX < 200 && mouseY > 250 && mouseY < 325 )
+            {
+                suitInfo.add(suits.get(4));
+                val = 4;
             }
         }
 
-        
-        if (which != -1)
-        {
-            System.out.println(suits.get(which));
-        }
-    }*/
+    }
 
-  
     public void setup()
     {
 
@@ -179,12 +150,21 @@ public class UI extends PApplet
     {
         background(159, 0, 0);
         
+       
         //Drawing Layout
         fill(255);
         stroke(0);
         rect(30, 40, 350, 300); //x,y,width,height
         rect(600, 40, 350, 300);
 
+        fill(0);
+        text("Suit:",640,60);
+        text("Attack:",640,100);
+        text("Health:",640,140);
+        text("Armor:",640,180);
+        text("Stealth:",640,220);
+        text("Agility:",640,260);
+        
         //Invoke method to drawSpider
         spider.drawSpider();
 
@@ -207,7 +187,9 @@ public class UI extends PApplet
         text("SpiderMan", width / 2, 150);
 
 
-        /*drawSuitButtons();*/
+      printSuitInfo(val);
+
+        
     }
 }
 

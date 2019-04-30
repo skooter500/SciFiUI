@@ -31,16 +31,16 @@ public class Suit
 
     public Suit(TableRow tr)
     {
-        /*
+        
         suit = tr.getString("Suit");
         attack = tr.getString("Attack");
         health = tr.getString("Health");
         armor = tr.getString("Armor");
         stealth = tr.getString("Stealth");
         agility = tr.getString("Agility");
-        */
         
-        this(tr.getString("Suit"), tr.getString("Attack"), tr.getString("Health"), tr.getString("Armor"), tr.getString("Stealth"),tr.getString("Agility"));
+        
+        //this(tr.getString("Suit"), tr.getString("Attack"), tr.getString("Health"), tr.getString("Armor"), tr.getString("Stealth"),tr.getString("Agility"));
     }
 
     /**
