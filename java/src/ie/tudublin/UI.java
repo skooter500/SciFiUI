@@ -9,7 +9,7 @@ import processing.data.TableRow;
 
 public class UI extends PApplet
 {
-
+    //Creating Array Lists
     ArrayList<Suit> suits = new ArrayList<Suit>();
     ArrayList<Suit> suitInfo = new ArrayList<Suit>();
     
@@ -19,9 +19,13 @@ public class UI extends PApplet
     Radar radar;
     Radar radar2;
 
-    Button b;
-    Time time;
+    Button b1;
+    Button b2;
+    Button b3;
+    Button b4;
+    Button b5;
 
+    Time time;
     Spider spider;
 
     boolean[] keys = new boolean[1024];
@@ -45,12 +49,12 @@ public class UI extends PApplet
     public void settings()
     {
         size(1000, 700);
-    
-        loadSuits();
-        printSuits();
-       
-       
+        
+        //Loading Method
+        loadSuits();   
     }
+    
+    /*Constructing new suit Instances and populating in suit Array List */
 
     public void loadSuits()
     {
@@ -58,21 +62,17 @@ public class UI extends PApplet
         for(TableRow tr : table.rows())
         {
             Suit a = new Suit(tr);
-            suits.add(a);
-            
-            //suits.add(new Suit(tr));
+            suits.add(a);     
+    
         }   
 
     }
-
-    public void printSuits() 
-    {
-          for (Suit a : suits) 
-          {
-              System.out.println("Suit:" + a);
-          }
     
-    }
+    /**
+     * printSuitInfo
+     * This method is use to display each data title 
+     * @param j
+     */
 
     public void printSuitInfo(int j)
     {   
@@ -87,11 +87,13 @@ public class UI extends PApplet
         }
     }
 
+    /**
+     * mouseClicked()
+     * This method is invoked when you click a certain button.
+     */
     public void mouseClicked()
     {
-        
-
-        //CHecks if mouse position is inside the rectangle containing buttons
+        //Checks if mouse position is inside the rectangle containing buttons
         if(mouseX > 30 && mouseX < 380 && mouseY > 40 && mouseY < 340 )
         {
             //Checks if mouse position is within the range of Classic Suit
@@ -131,10 +133,14 @@ public class UI extends PApplet
 
     public void setup()
     {
+        b1 = new Button(this, 50, 50, 150, 75, "Classic Suit");
+        b2 = new Button(this, 215, 50, 150, 75, "Noir Suit");
+        b3 = new Button(this, 50, 150, 150, 75, "Stealth Suit");
+        b4 = new Button(this, 215, 150, 150, 75, "Iron Spider Suit");
+        b5 = new Button(this, 50, 250, 150, 75, "Mark IV Suit");
+        
 
-        b = new Button(this, 50, 50, 100, 50, "Button");
-        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, 850, 550, 120);// speed,x,y
+        radar = new Radar(this, 1, 850, 550, 120);// speed,x,y,radius
         radar2 = new Radar(this, 1, 150, 550, 120);// speed,x,y
         
         //time class
@@ -142,8 +148,6 @@ public class UI extends PApplet
 
         spider = new Spider(this);
 
-        //
-        
     }
 
     public void draw()
@@ -168,7 +172,11 @@ public class UI extends PApplet
         //Invoke method to drawSpider
         spider.drawSpider();
 
-        b.render();
+        b1.render();
+        b2.render();
+        b3.render();
+        b4.render();
+        b5.render();
         
         //Invoke method to draw Radars
         fill(0);
@@ -187,9 +195,8 @@ public class UI extends PApplet
         text("SpiderMan", width / 2, 150);
 
 
-      printSuitInfo(val);
+        printSuitInfo(val);
 
-        
     }
 }
 
