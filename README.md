@@ -1,14 +1,21 @@
 # SciFi UI Project
 
-Name:
+Name: Jerricho Juliano
 
-Student Number: 
+Student Number: C17331306
 
-Fork this repository and use it a starter project for your assignment
 
 # Description of the assignment
+The Task of this assignment was to create a SciFi user interface using the knowledge we know from Java and Processing. I decided to go on a design that is somewhat related to spiderman since I thouroughly enjoy the movies. So I decided to go along with this theme in the end.
 
 # Instructions
+There is not much interactivity with the user interface as it is mainly just visual.
+
+1)The 3 circles at the bottom of the screen represent the time and it constantly updates the actual time as it were in real life when the program is run.
+
+2)The radar at the bottom right corner and the spider in the middle of the screen are just drawings and no interactivity.
+
+3)The buttons at the top left of the screen shows the different types of suits and if it is clicked it shows the data of the suit that is clicked on 
 
 # How it works
 
